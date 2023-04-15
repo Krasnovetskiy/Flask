@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
+from flask_login import LoginManager
 
-
+login_manager = LoginManager()
 app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
@@ -15,6 +16,7 @@ def index(*args, **kwargs):
 
 @app.route("/registration", methods=['GET', 'POST'])
 def registration():
+
     return render_template('registration.html')
 
 @app.login("/login")
